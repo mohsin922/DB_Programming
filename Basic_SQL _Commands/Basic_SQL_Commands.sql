@@ -51,5 +51,18 @@ select * from employeeDetails
 
 --------------------------------------------------------
 
+---Update Table Rows--
+
+UPDATE employeeDetails SET LastName='Devaraj' WHERE FirstName= 'Ajith'
+Go
+
+---------------------------------------------------------------------
+
+----Delete Particular Row from Table
+
+DELETE FROM employeeDetails WHERE FirstName='Ajith'
+Go
+select * from employeeDetails
+
 
 
