@@ -62,7 +62,93 @@ Go
 
 DELETE FROM employeeDetails WHERE FirstName='Ajith'
 Go
-select * from employeeDetails
 
+Select * from employeeDetails
+Go
+
+---------------------------------------------------------------------
+
+---Select Queries----
+----Sorting the result set by Where Clause
+-----filter rows based on one or more conditions
+---From->Where->Select
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address = 'Kashmir';
+-------------------------------------
+---To sort the result set based on one or more columns
+----ORDER BY clause sorts the customers by their first names in ascending order.
+----FROM->WHERE->SELECT->ORDER BY.
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Gender = 'M'
+ORDER BY
+    FirstName;   ---by default sorts by ASC order
+
+SELECT
+    FirstName
+FROM
+    employeeDetails
+ORDER BY
+	FirstName DESC     ---Descending order
+
+
+SELECT
+    Address,
+    FirstName,
+    LastName
+FROM
+    employeeDetails
+ORDER BY
+    Address DESC,
+    FirstName ASC;
+
+
+SELECT
+    FirstName,
+    LastName
+FROM
+    employeeDetails
+ORDER BY
+    LEN(FirstName) DESC;
+
+------------------------------------------------
+
+----To group rows into groups, you use the GROUP BY clause.
+----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
+SELECT
+    Gender,
+    COUNT (*)
+FROM
+    employeeDetails
+GROUP BY
+    Gender
+ORDER BY
+    Gender;
+
+-------------------------------------------
+----To filter groups based on one or more conditions, you use the HAVING clause.
+
+SELECT
+    Gender,
+    COUNT (*)
+FROM
+    employeeDetails
+GROUP BY
+    Gender
+HAVING
+    COUNT (*) > 4
+ORDER BY
+    Gender;
+
+
+----WHERE clause filters rows while the HAVING clause filters groups
 
 
