@@ -178,6 +178,34 @@ ORDER BY
 
 
 --------------------------------------------------------------------------------------------------------------------------------------
+--- SELECT DISTINCT clause to retrieve the only distinct values in a specified list of columns. Avoids the Duplicate values
+---DISTINCT clause treats all NULL “values” as the same value and displays a single null to avoid duplication.
+---Both DISTINCT and GROUP BY clause reduces the number of returned rows in the result set by removing the duplicates.
+---However, you should use the GROUP BY clause when you want to apply an aggregate function on one or more columns.
+
+SELECT DISTINCT
+	Gender
+FROM
+	employeeDetails;
+
+
+SELECT DISTINCT
+	Gender,
+	Address
+FROM
+	employeeDetails;
+
+
+SELECT 
+	Gender,Address
+FROM 
+	employeeDetails
+GROUP BY 
+	Gender,Address
+ORDER BY
+	Gender,Address
+
+------------------------------------------------------------------------------------------------------------------------------------------
 ----To group rows into groups, you use the GROUP BY clause.
 ----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
 SELECT
