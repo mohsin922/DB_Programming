@@ -206,6 +206,103 @@ ORDER BY
 	Gender,Address
 
 ------------------------------------------------------------------------------------------------------------------------------------------
+---To get the rows from the table that satisfy one or more conditions, you use the WHERE clause.
+----logical expression is often called a predicate.
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address = 'Kashmir' AND Gender = 'M'
+ORDER BY
+    Salary DESC;
+
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Salary > 400000 AND Gender = 'M'
+ORDER BY
+    FirstName DESC;
+
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Salary > 400000 OR Gender = 'M'  ---if any condition satisfies,it will display their result set
+ORDER BY
+    FirstName DESC;
+
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Salary BETWEEN 300000 AND 500000   ---Finding rows with the value between two values
+ORDER BY
+    FirstName DESC;
+
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Salary In (330000.00,500000.00,440000.00)   ---Finding rows that have a value in a list of values
+ORDER BY
+    FirstName DESC;
+
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE '%Kashmir%'   ---Finding rows whose values contain a string
+ORDER BY
+    FirstName DESC;
+
+-------------------------------------------------------------------------------------------------------------
+--IS NOT NULL is used to check if There is NO NUll inside a column
+--IS NULL is used to check Null Values inside a Column.
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Salary IS NOT NULL
+ORDER BY
+    FirstName,
+    LastName;
+
+------------------------------------------------------------------------
+----SQL Server always evaluates the AND operators first.
+----However, you can change the order of evaluation by using parentheses.
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    (Salary =490000  OR Salary = 500000)
+AND Gender = 'M'
+ORDER BY
+    FirstName;
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
 ----To group rows into groups, you use the GROUP BY clause.
 ----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
 SELECT
