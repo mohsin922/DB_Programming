@@ -376,7 +376,7 @@ ORDER BY
 ----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
 SELECT
     Gender,
-    COUNT (*)
+    COUNT (*) AS Count
 FROM
     employeeDetails
 GROUP BY
