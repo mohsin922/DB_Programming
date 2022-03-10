@@ -119,8 +119,65 @@ FROM
 ORDER BY
     LEN(FirstName) DESC;
 
-------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+----OFFSET FETCH clauses to limit the number of rows returned by a query.---
+-----The OFFSET and FETCH clauses are the options of the ORDER BY clause---
+----must use the OFFSET and FETCH clauses with the ORDER BY clause.----
 
+SELECT
+    *
+FROM
+    employeeDetails
+ORDER BY
+    FirstName
+OFFSET 4 ROWS;
+------------------
+SELECT
+    *
+FROM
+    employeeDetails
+ORDER BY
+    FirstName
+OFFSET 4 ROWS
+FETCH NEXT 2 ROWS ONLY;
+-------------------------
+SELECT
+    *
+FROM
+    employeeDetails
+ORDER BY
+    FirstName
+OFFSET 0 ROWS
+FETCH First 5 ROWS ONLY;
+
+--------------------------------------------------------------------
+----SELECT TOP clause allows you to limit the number of rows or percentage of rows returned in a query result set.
+----- SELECT TOP statement is always used in conjunction with the ORDER BY clause
+
+SELECT TOP 5
+    *
+FROM
+    employeeDetails
+ORDER BY 
+    FirstName DESC;
+
+SELECT TOP 1 PERCENT   ----The PERCENT keyword indicates that the query returns the first N percentage of rows
+    *
+FROM
+    employeeDetails
+ORDER BY 
+    FirstName DESC;
+
+SELECT TOP 3 WITH TIES  ----The WITH TIES allows you to return more rows with values that match the last row in the limited result set. 			
+    *
+FROM
+    employeeDetails
+ORDER BY 
+    Salary DESC;
+-----Note that WITH TIES may cause more rows to be returned than you specify in the expression.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
 ----To group rows into groups, you use the GROUP BY clause.
 ----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
 SELECT
