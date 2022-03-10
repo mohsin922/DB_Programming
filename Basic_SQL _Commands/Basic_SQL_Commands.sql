@@ -243,7 +243,7 @@ SELECT
 FROM
     employeeDetails
 WHERE
-    Salary BETWEEN 300000 AND 500000   ---Finding rows with the value between two values
+    Salary BETWEEN 300000 AND 500000   ---Finding rows with the value between two values(Between Operator)
 ORDER BY
     FirstName DESC;
 
@@ -253,18 +253,63 @@ SELECT
 FROM
     employeeDetails
 WHERE
-    Salary In (330000.00,500000.00,440000.00)   ---Finding rows that have a value in a list of values
-ORDER BY
+    Salary In (330000.00,500000.00,440000.00)   ---Finding rows that have a value in a list of values and it's alternative to multiple or conditions					
+ORDER BY										----eg Salary = 330000 or Salary = 500000 or Salary = 440000(IN OPerator)
     FirstName DESC;
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE '%Kashmir%'   ---Finding rows whose values contain a string(Logical Operator
+ORDER BY
+    FirstName DESC;
 
 SELECT
     *
 FROM
     employeeDetails
 WHERE
-    Address LIKE '%Kashmir%'   ---Finding rows whose values contain a string
+    Address LIKE '%r'   ---whose last character ends with 'r'
 ORDER BY
+    FirstName DESC;
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE 'B%'   ---whose first character starts with 'B' ---% matches any sequence of characters
+ORDER BY
+    FirstName DESC;
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE 'B%re'   ---whose first character starts with 'B' and last character ends with 'er'---% matches any sequence of characters
+ORDER BY
+    FirstName DESC;
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE '_a%'   ---whose second character is 'a' 
+ORDER BY
+    FirstName DESC;
+
+SELECT
+    *
+FROM
+    employeeDetails
+WHERE
+    Address LIKE '[KC]%'   ---starts with K or C. Similarly [A-Z]% will determine Range for first character.
+ORDER BY					----'[^A-X]%' will Display Address which doesnt include A to X characters in Starting
     FirstName DESC;
 
 -------------------------------------------------------------------------------------------------------------
@@ -293,13 +338,37 @@ AND Gender = 'M'
 ORDER BY
     FirstName;
 
+---------------------------------------------------------------------------
+----In Operator is also used as a SubQuery
+SELECT
+    FirstName
+FROM
+    employeeDetails
+WHERE
+    Id IN (
+        SELECT
+            Id
+        FROM
+            employeeDetails
+        WHERE
+            Gender = 'M'
+    )
+ORDER BY
+    FirstName;
+-----------------------------------------------------------------------------------------------------------------------------------------
+SELECT
+    FirstName + ' ' + LastName AS 'Full Name'		------Full Name is used as an Alias here to give Column Name.We can do it with or without AS keyword.
+FROM
+    employeeDetails
+ORDER BY
+    FirstName;
 
-
-
-
-
-
-
+SELECT
+    FirstName + ' ' + LastName  'Full Name'		------Full Name is used as an Alias here to give Column Name.We can do it with or without AS keyword.
+FROM											---In ORDER BY we can use Alias Name or Column Name.
+    employeeDetails
+ORDER BY
+    FirstName;
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------
