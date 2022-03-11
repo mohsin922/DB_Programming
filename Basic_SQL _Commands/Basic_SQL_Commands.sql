@@ -49,6 +49,8 @@ INSERT INTO employeeDetails(FirstName,LastName,Gender,Address,PhoneNumber,Salary
 ----Display all rows and Columns inside Table----- 
 select * from employeeDetails
 
+
+
 --------------------------------------------------------
 
 ---Update Table Rows--
@@ -376,7 +378,7 @@ ORDER BY
 ----FROM->WHERE->GROUP BY->SELECT->ORDER BY.
 SELECT
     Gender,
-    COUNT (*)
+    COUNT (*) AS Count
 FROM
     employeeDetails
 GROUP BY
@@ -401,5 +403,31 @@ ORDER BY
 
 
 ----WHERE clause filters rows while the HAVING clause filters groups
+
+-----------------------------------------------------------------------------------
+
+Create Table Deparment (
+DeptID int Primary Key,
+DepartmentName varchar(MAX),
+ID int FOREIGN KEY REFERENCES employeeDetails(ID)
+)
+Select * from Deparment
+
+
+Insert into Deparment (DeptID,DepartmentName,ID) VALUES
+(1,'CSE',1),
+(2,'MECH',2),
+(3,'CSE',3),
+(4,'ECE',4),
+(5,'ECE',5),
+(6,'CSE',6),
+(7,'MECH',8),
+(8,'MECH',9);
+
+
+
+
+
+
 
 
