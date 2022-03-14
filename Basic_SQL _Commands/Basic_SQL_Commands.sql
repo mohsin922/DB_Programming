@@ -255,7 +255,7 @@ SELECT
 FROM
     employeeDetails
 WHERE
-    Salary In (330000.00,500000.00,440000.00)   ---Finding rows that have a value in a list of values and it's alternative to multiple or conditions					
+    Salary In (330000.00,500000.00,440000.00)   ---Finding rows that have a value in a list of values and it's alternative to multiple OR conditions					
 ORDER BY										----eg Salary = 330000 or Salary = 500000 or Salary = 440000(IN OPerator)
     FirstName DESC;
 
@@ -265,7 +265,8 @@ SELECT
 FROM
     employeeDetails
 WHERE
-    Address LIKE '%Kashmir%'   ---Finding rows whose values contain a string(Logical Operator
+    Address LIKE '%Kashmir%'   ---Finding rows whose values contain a string(Logical Operator)
+
 ORDER BY
     FirstName DESC;
 
