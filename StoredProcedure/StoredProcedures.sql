@@ -86,7 +86,7 @@ BEGIN
 END
 
 Declare @Result INT
-EXEC spAddNumbers 10,20,@Result OUTPUT;
+EXEC spAddNumbers 10,20, @Add = @Result OUTPUT;
 SELECT @Result AS Addition;
 
 ---------------------------------------------
