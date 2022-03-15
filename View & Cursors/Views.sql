@@ -64,4 +64,54 @@ ALTER TABLE EmployeeDetails Drop Column Gender; ---We wont be able to Alter thes
 
 ----------------------------------------------------------
 
+---Hide Complexity of Query
+---Row Level Security
+----Column Level Security
+
+Create View RowLvl
+AS
+Select * from employeeDetails where Salary > 300000;
+
+Select * from RowLvl;
+
+Create View ColLvl
+AS
+Select FirstName,Gender,Address,Salary from employeeDetails;
+
+Select * from ColLvl;
+
+------------------------------------------------------------------------
+--------
+/*
+		Updating Views
+				WE CAN USE DML OPERATION ON SINGLE TABLE ONLY
+				VIEW SHOULD NOT CONTAIN GROUP BY , DISTINCT, HAVING CLAUSES.
+				WE CANNOT USE SUBQUERY IN A VIEW IN SQL SERVER.
+				WE CANNOT USE SET OPERATORS IN SQL VIEW.
+		DELETE FROM VIEW
+		INSERT INTO VIEW
+*/
+CREATE VIEW DEMO
+AS
+SELECT * FROM employeeDetails;
+
+SELECT * FROM DEMO;
+INSERT INTO DEMO( FirstName,LastName,Gender,Address,PhoneNumber,Salary,StartDate,JOB_ROLE) 
+VALUES
+('PETER','PARKER','M','BRIMINGHAM',8798700458,440000,GetDate(),'Snr Developer');
+
+DELETE FROM DEMO WHERE FirstName='PETER';
+UPDATE DEMO SET LastName='Bhat' WHERE FirstName='Muntazir';
+--------------------------------------------------------------------------------------
+-----With Check OPtion--
+Create view DemoWithCheckOption
+AS
+Select * from employeeDetails where Address = 'Kashmir'
+With Check Option
+
+Select * from DemoWithCheckOption;
+
+Insert Into DemoWithCheckOption Values( 'Peter','Parker','M','US',99778855412,250000,GETDATE(),'Jnr Developer');
+
+
 
