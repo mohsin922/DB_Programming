@@ -76,9 +76,11 @@ DISABLE TRIGGER TRG_Delete_Rule ON Student_details
 GO
 ENABLE TRIGGER TRG_Delete_Rule ON Student_details
 GO
+DISABLE  TRIGGER Trg_DB_Programming On DAtabase
 
 /******** REMOVE TRIGGER*******/
 DROP TRIGGER TRG_Delete_Rule
 GO
 DROP TRIGGER TRG_Insert_Rule
 GO
+
